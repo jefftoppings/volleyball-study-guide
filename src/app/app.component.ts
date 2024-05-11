@@ -6,7 +6,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { Observable, take } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { QuestionService } from './question/question.service';
-import { query } from '@angular/animations';
+import { MatMenuModule } from '@angular/material/menu';
+import {
+  MatCheckboxChange,
+  MatCheckboxModule,
+} from '@angular/material/checkbox';
+import { ReviewModeService } from './question/review-mode.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +22,9 @@ import { query } from '@angular/animations';
     MatIconModule,
     MatButtonModule,
     AsyncPipe,
-    RouterModule
+    RouterModule,
+    MatMenuModule,
+    MatCheckboxModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -26,6 +33,8 @@ export class AppComponent {
   router: Router = inject(Router);
   questionId$: Observable<number> = inject(QuestionService).questionId$;
   maxQuestionId: number = QuestionService.maxQuestionId;
+  reviewModeService: ReviewModeService = inject(ReviewModeService);
+  reviewMode$: Observable<boolean> = this.reviewModeService.reviewMode$;
 
   handleNavBack(): void {
     this.questionId$.pipe(take(1)).subscribe((questionId) => {
@@ -41,5 +50,9 @@ export class AppComponent {
         queryParams: { questionId: questionId + 1 },
       });
     });
+  }
+
+  handleReviewModeChange(event: MatCheckboxChange): void {
+    this.reviewModeService.reviewMode = event.checked;
   }
 }

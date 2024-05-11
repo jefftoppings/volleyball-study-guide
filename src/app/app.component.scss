@@ -20,3 +20,11 @@
     max-width: 375px;
     margin: 32px auto 0;
 }
+
+.panel-class {
+    width: 140px;
+}
+
+::ng-deep .review-mode-checkbox .mdc-label {
+    width: 100px;
+}
