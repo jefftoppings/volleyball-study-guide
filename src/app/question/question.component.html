@@ -1,12 +1,19 @@
 @if (currentQuestion$ | async; as question) {
-<mat-expansion-panel>
+<mat-expansion-panel [hideToggle]="true">
   <mat-expansion-panel-header>
     <mat-panel-title>
-        <div class="title-container">
-            <div>{{ question.title }} ({{ question.answers.length }})</div>
-            <div>description</div>
+      <div class="title-container">
+        <div class="title">
+          {{ question.title }}
         </div>
+        @if(question.subtitle) {
+        <div class="subtitle">{{ question.subtitle }}</div>
+        }
+      </div>
     </mat-panel-title>
+    <mat-panel-description
+      >({{ question.answers.length }})</mat-panel-description
+    >
   </mat-expansion-panel-header>
   <div>
     <ul>

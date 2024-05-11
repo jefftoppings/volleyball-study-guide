@@ -8,9 +8,9 @@ export const QUESTIONS: Question[] = [
   {
     title: 'Changes of Equipment',
     answers: [
-      'to play barefoot',
-      'to change wet or damaged uniforms between sets, or after substitution, provided that the colour,d esign, and number of the new uniform is the same',
-      'to play in training suits in cold weather, provided that they are of the same colour and design for the whole team (except Libero) and numbered correctly',
+      'To play barefoot',
+      'To change wet or damaged uniforms between sets, or after substitution, provided that the colour,d esign, and number of the new uniform is the same',
+      'To play in training suits in cold weather, provided that they are of the same colour and design for the whole team (except Libero) and numbered correctly',
     ],
   },
   {

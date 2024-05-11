@@ -1,4 +1,20 @@
 .title-container {
   display: flex;
   flex-direction: column;
+  .title {
+    font-weight: 400;
+  }
+  .subtitle {
+    font-weight: 300;
+    color: #666666;
+    margin-top: 4px;
+  }
+}
+
+li:not(:last-of-type) {
+  margin-bottom: 16px;
+}
+
+.mat-expansion-panel-header-description {
+  flex-grow: 0;
 }
