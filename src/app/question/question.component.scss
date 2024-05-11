@@ -18,3 +18,8 @@ li:not(:last-of-type) {
 .mat-expansion-panel-header-description {
   flex-grow: 0;
 }
+
+.mat-expansion-panel-header, .mat-expansion-panel-header.mat-expanded {
+  height: fit-content;
+  padding: 16px;
+}
