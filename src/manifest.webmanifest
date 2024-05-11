@@ -1,7 +1,7 @@
 {
   "name": "Volleyball Study Guide",
   "short_name": "Vball Study",
-  "theme_color": "#673AB7",
+  "theme_color": "#1975d2",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
