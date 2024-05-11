@@ -22,7 +22,6 @@ export class QuestionComponent {
   reviewMode$: Observable<boolean> = inject(ReviewModeService).reviewMode$;
 
   constructor() {
-    // close expansion panel if question changes
     combineLatest([this.currentQuestion$, this.reviewMode$])
       .pipe(takeUntilDestroyed())
       .subscribe(([, reviewMode]) => (this.expanded = reviewMode));
