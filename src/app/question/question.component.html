@@ -1,5 +1,5 @@
 @if (currentQuestion$ | async; as question) {
-<mat-expansion-panel [hideToggle]="true">
+<mat-expansion-panel [hideToggle]="true" [(expanded)]="expanded">
   <mat-expansion-panel-header>
     <mat-panel-title>
       <div class="title-container">
