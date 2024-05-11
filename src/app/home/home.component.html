@@ -13,7 +13,8 @@
   <button
     mat-flat-button
     color="primary"
-    [routerLink]="[startingPage.value]"
+    [routerLink]="['question']"
+    [queryParams]="{ questionId: startingPage.value }"
   >
     Start
   </button>

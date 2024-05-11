@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
+import { QuestionService } from '../question/question.service';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,6 @@ import { RouterModule } from '@angular/router';
 })
 export class HomeComponent {
   min = 1;
-  max = 100; // TODO update
+  max = QuestionService.maxQuestionId
 
 }

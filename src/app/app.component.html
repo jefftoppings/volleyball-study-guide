@@ -1,18 +1,29 @@
 <mat-toolbar color="primary">
-  <button mat-icon-button routerLink="/">
+  <button
+    mat-icon-button
+    routerLink="/"
+    [queryParams]="{}"
+    queryParamsHandling=""
+  >
     <mat-icon>home</mat-icon>
   </button>
   <div class="toolbar-container">
     <span>Volleyball Study Guide</span>
+    @if (questionId$ | async; as questionId) {
     <div class="nav-container">
+      @if (questionId > 1) {
       <button mat-icon-button (click)="handleNavBack()">
         <mat-icon>arrow_left</mat-icon>
       </button>
-      <span class="nav-page-number">69</span>
+      }
+      <span class="nav-page-number">{{ questionId }}</span>
+      @if (questionId < maxQuestionId) {
       <button mat-icon-button (click)="handleNavForward()">
         <mat-icon>arrow_right</mat-icon>
       </button>
+      }
     </div>
+    }
   </div>
 </mat-toolbar>
 <div class="app-container">
