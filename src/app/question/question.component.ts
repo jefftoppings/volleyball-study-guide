@@ -5,11 +5,12 @@ import { Question } from '../data/questions';
 import { QuestionService } from './question.service';
 import { AsyncPipe } from '@angular/common';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { SubBulletPipe } from './sub-bullet.pipe';
 
 @Component({
   selector: 'app-question',
   standalone: true,
-  imports: [MatExpansionModule, AsyncPipe],
+  imports: [MatExpansionModule, AsyncPipe, SubBulletPipe],
   templateUrl: './question.component.html',
   styleUrl: './question.component.scss',
 })

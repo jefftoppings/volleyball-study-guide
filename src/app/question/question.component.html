@@ -17,11 +17,23 @@
   </mat-expansion-panel-header>
   <div>
     <ul>
-      @for (answer of question.answers; track $index) {
+      @for (answer of question.answers; track $index) { @if (answer | subBullet;
+      as subBulletConfig) { @if (subBulletConfig.subBullets.length > 0) {
+      <li>
+        {{ subBulletConfig.title }}
+        <ul>
+          @for (subBullet of subBulletConfig.subBullets; track $index) {
+          <li>
+            {{ subBullet }}
+          </li>
+          }
+        </ul>
+      </li>
+      } @else {
       <li>
         {{ answer }}
       </li>
-      }
+      } } }
     </ul>
   </div>
 </mat-expansion-panel>
