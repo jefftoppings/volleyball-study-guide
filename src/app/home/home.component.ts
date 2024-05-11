@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { QuestionService } from '../question/question.service';
 
 @Component({
@@ -12,6 +12,12 @@ import { QuestionService } from '../question/question.service';
 })
 export class HomeComponent {
   min = 1;
-  max = QuestionService.maxQuestionId
+  max = QuestionService.maxQuestionId;
+  router: Router = inject(Router);
 
+  handleStart(startingQuestion: string): void {
+    this.router.navigate(['question'], {
+      queryParams: { questionId: startingQuestion },
+    });
+  }
 }
