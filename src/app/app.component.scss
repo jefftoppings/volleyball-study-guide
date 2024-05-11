@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 16px;
+    width: 100%;
+    .nav-container {
+        display: flex;
+        align-items: center;
+        .nav-page-number {
+            padding: 0 8px;
+        }
+    }
+}
