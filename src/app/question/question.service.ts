@@ -1,12 +1,15 @@
 import { Injectable, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, map, startWith, tap } from 'rxjs';
+import { Observable, map } from 'rxjs';
+import { QUESTIONS, Question } from '../data/questions';
 
 @Injectable({
   providedIn: 'root',
 })
 export class QuestionService {
-  static readonly maxQuestionId = 10;
+  static readonly maxQuestionId = QUESTIONS.length;
+
+  /* One more than the index */
   readonly questionId$: Observable<number> = inject(
     ActivatedRoute
   ).queryParams.pipe(
@@ -14,7 +17,7 @@ export class QuestionService {
     map((id) => parseInt(id || '0', 10))
   );
 
-  constructor() {}
-
-  // Add your service methods here
+  readonly currentQuestion$: Observable<Question> = this.questionId$.pipe(
+    map((questionId) => QUESTIONS[questionId - 1])
+  );
 }
