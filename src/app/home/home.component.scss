@@ -1,0 +1,19 @@
+.home-container {
+  display: flex;
+  flex-direction: column;
+  .center-label {
+    display: flex;
+    justify-content: center;
+  }
+  .page-number-input {
+    border: 1px solid #7b1fa2;
+    border-radius: 4px;
+    padding: 8px;
+    outline: none;
+    transition: border-color 0.2s ease-in-out;
+    margin-bottom: 8px;
+  }
+  button {
+    width: 100px;
+  }
+}

@@ -1,1 +1,20 @@
-<p>home works!</p>
+<div class="home-container">
+  <div class="center-label">
+    <label for="startingPage">Starting page:</label>
+  </div>
+  <input
+    #startingPage
+    class="page-number-input"
+    type="number"
+    [min]="min"
+    [max]="max"
+    [value]="1"
+  />
+  <button
+    mat-flat-button
+    color="primary"
+    [routerLink]="[startingPage.value]"
+  >
+    Start
+  </button>
+</div>
