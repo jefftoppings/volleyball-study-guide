@@ -1,1 +1,21 @@
-<p>question works!</p>
+@if (currentQuestion$ | async; as question) {
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+        <div class="title-container">
+            <div>{{ question.title }} ({{ question.answers.length }})</div>
+            <div>description</div>
+        </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div>
+    <ul>
+      @for (answer of question.answers; track $index) {
+      <li>
+        {{ answer }}
+      </li>
+      }
+    </ul>
+  </div>
+</mat-expansion-panel>
+}
