@@ -6,6 +6,101 @@ export interface Question {
 
 export const QUESTIONS: Question[] = [
   {
+    title: 'Playing Surface',
+    answers: [
+      'The surface must be flat, horizontal, and uniform. It must not present any danger of injury to the players. It is forbidden to play on rough or slippery surfaces.',
+      'On indoor courts, the surface of the playing court must be of a light colour.',
+      'On outdoor courts, a slope of 5mm per metre is allowed for drainage. Court lines made of solid materials are forbidden.',
+    ],
+  },
+  {
+    title: 'Lines on the Court',
+    answers: [
+      'Boundary lines*Two side lides and two end lines mark the playing court. Both sidelines and end lines are drawn inside the dimensions of the playing court',
+      'Centre line*The axis of the centre line divides the playing court into two equal courts measuring 9x9m each; however, the entire width of the line is considered to belong to both courts equally. This line extends beneath the net from side line to side line.',
+      'Attack line*On each court, an attack line whose rear edge is drawn 3m back from the axis of the centre line, marks the front zone.',
+    ],
+  },
+  {
+    title: 'Zones and Areas',
+    answers: [
+      'Front zone',
+      'Service zone',
+      'Substitution zone',
+      'Libero Replacement Zone',
+      'Warm-up Area',
+    ],
+  },
+  {
+    title: 'Temperature',
+    subtitle: '(minimum)',
+    answers: ['The minimum temperature shall not be below 10 deg C'],
+  },
+  {
+    title: 'Lighting',
+    answers: [
+      '1000 to 1500 lux measured at 1m above the surface of the playing area',
+    ],
+  },
+  {
+    title: 'Net Heights',
+    answers: [
+      'Men*18U: 2.43m*15/16U: 2.35m*14U: 2.20m',
+      'Women*18U: 2.24m*16U: 2.24m*14U: 2.15m',
+    ],
+  },
+  {
+    title: 'Net Structure',
+    answers: [
+      '1m wide',
+      '9.5 to 10m long (with 25 to 50cm on each side of the side bands)',
+      'Made of 10cm square black mesh',
+      'Top band: 7cm wide, made of two-fold white canvas',
+      'Bottom band: 5cm wide',
+    ],
+  },
+  {
+    title: 'Antenna',
+    answers: [
+      '1.8m long',
+      '10mm diameter',
+      'Made of fibreglass or similar material',
+      'Top 80cm exetnds above the net and is marked with 10cm stripes of contrasting colour, preferably red and white.',
+    ],
+  },
+  {
+    title: 'Posts',
+    answers: [
+      'Placed at a distance of 0.5 - 1m outside the side lines',
+      '2.55m high and preferably adjustable',
+    ],
+  },
+  {
+    title: 'Ball',
+    answers: [
+      'Spherical, made of a flexible leather or synthetic leather case with a bladder inside made of rubber or a similar material',
+      'Colour may be a uniform light colour, or a combination of colours',
+      'Circumference: 65-67cm',
+      'Weight: 260-280g',
+      'Pressure: 0.3-0.325 kg/cm^2',
+    ],
+  },
+  {
+    title: "Team Composition",
+    answers: [
+      'Coaching Staff:*One Coach*Max two assitant coaches',
+      'Medical Staff:*One team therapist*One medical doctor'
+    ]
+  },
+  {
+    title: "Players not in play may warm-up without balls, as follows",
+    answers: [
+      'During play:*In the warm-up areas',
+      'During timeouts:*In the free zone behind their court',
+      'During set intervals:*Players may warm up using balls within their own free zone'
+    ]
+  },
+  {
     title: 'Changes of Equipment',
     answers: [
       'To play barefoot',
