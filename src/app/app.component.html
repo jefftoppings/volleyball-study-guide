@@ -10,17 +10,15 @@
   <div class="toolbar-container">
     <span class="title">Study Guide</span>
     <div class="nav-container">
-      @if (questionId$ | async; as questionId) { @if (questionId > 1) {
+      @if (questionId$ | async; as questionId) {
       <button mat-icon-button (click)="handleNavBack()">
         <mat-icon>arrow_left</mat-icon>
       </button>
-      }
       <span class="nav-page-number">{{ questionId }}</span>
-      @if (questionId < maxQuestionId) {
       <button mat-icon-button (click)="handleNavForward()">
         <mat-icon>arrow_right</mat-icon>
       </button>
-      } }
+      }
       <button mat-icon-button [matMenuTriggerFor]="menu">
         <mat-icon>settings</mat-icon>
       </button>

@@ -39,7 +39,9 @@ export class AppComponent {
   handleNavBack(): void {
     this.questionId$.pipe(take(1)).subscribe((questionId) => {
       this.router.navigate(['question'], {
-        queryParams: { questionId: questionId - 1 },
+        queryParams: {
+          questionId: questionId === 1 ? this.maxQuestionId : questionId - 1,
+        },
       });
     });
   }
@@ -47,7 +49,9 @@ export class AppComponent {
   handleNavForward(): void {
     this.questionId$.pipe(take(1)).subscribe((questionId) => {
       this.router.navigate(['question'], {
-        queryParams: { questionId: questionId + 1 },
+        queryParams: {
+          questionId: questionId === this.maxQuestionId ? 1 : questionId + 1,
+        },
       });
     });
   }
