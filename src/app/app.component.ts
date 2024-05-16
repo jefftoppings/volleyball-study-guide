@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -29,12 +29,31 @@ import { ReviewModeService } from './question/review-mode.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   router: Router = inject(Router);
   questionId$: Observable<number> = inject(QuestionService).questionId$;
   maxQuestionId: number = QuestionService.maxQuestionId;
   reviewModeService: ReviewModeService = inject(ReviewModeService);
   reviewMode$: Observable<boolean> = this.reviewModeService.reviewMode$;
+
+  ngOnInit(): void {
+    document.addEventListener('keydown', this.onKeydown.bind(this));
+  }
+
+  ngOnDestroy(): void {
+    document.removeEventListener('keydown', this.onKeydown.bind(this));
+  }
+
+  onKeydown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case 'ArrowLeft':
+        this.handleNavBack();
+        break;
+      case 'ArrowRight':
+        this.handleNavForward();
+        break;
+    }
+  }
 
   handleNavBack(): void {
     this.questionId$.pipe(take(1)).subscribe((questionId) => {
