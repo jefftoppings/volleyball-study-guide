@@ -1,5 +1,16 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import {
+  Component,
+  HostListener,
+  OnDestroy,
+  OnInit,
+  inject,
+} from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import {
+  BrowserModule,
+  HammerModule,
+  HAMMER_GESTURE_CONFIG,
+} from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,6 +23,7 @@ import {
   MatCheckboxModule,
 } from '@angular/material/checkbox';
 import { ReviewModeService } from './question/review-mode.service';
+import { HammerConfig } from '../hammer.config';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +37,13 @@ import { ReviewModeService } from './question/review-mode.service';
     RouterModule,
     MatMenuModule,
     MatCheckboxModule,
+    HammerModule,
+  ],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerConfig,
+    },
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -53,6 +72,16 @@ export class AppComponent implements OnInit, OnDestroy {
         this.handleNavForward();
         break;
     }
+  }
+
+  @HostListener('swipeleft', ['$event'])
+  onSwipeLeft(_event: any): void {
+    this.handleNavBack();
+  }
+
+  @HostListener('swiperight', ['$event'])
+  onSwipeRight(_event: any): void {
+    this.handleNavForward();
   }
 
   handleNavBack(): void {
